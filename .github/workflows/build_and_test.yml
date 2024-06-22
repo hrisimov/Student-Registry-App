@@ -7,6 +7,16 @@ on:
     branches: [ "main" ]
 
 jobs:
+  npm_security_tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v4
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run npm security tests
+      run: npm audit
+
   integration_tests:
     runs-on: ubuntu-latest
     steps:
